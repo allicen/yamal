@@ -76,6 +76,7 @@ case "$1" in
 
         cd "../talanta"
 
+        npm install
         npm run build
 #        npm install -g serve
 
