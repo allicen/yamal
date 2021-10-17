@@ -36,7 +36,7 @@ class RestController {
         }
 
         def user = new User(username: params.email, password: params.password, fullName: params.fullName)
-        def userDetails = new UserDetails(city: params.city, birthday: params.birthday, userEmail: params.email, user: user)
+        def userDetails = new UserDetails(city: params.city, birthday: params.birthday, userEmai: params.email, user: user)
 
         if (User.findByUsername(params.email)) {
             out.result = 'error'
@@ -47,7 +47,7 @@ class RestController {
 
         try {
             userService.save(user)
-            userDetails.save()
+            userDetails.save(flush: true)
             userRoleService.save(user, roleService.findByAuthority('ROLE_USER'))
             out.result = 'success'
             out.message = 'Регистрация прошла успешно'
