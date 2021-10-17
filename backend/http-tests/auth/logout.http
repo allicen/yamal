@@ -1,0 +1,4 @@
+### Выход
+GET {{host}}/api/logout
+
+###

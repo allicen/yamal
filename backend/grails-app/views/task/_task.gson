@@ -1,0 +1,28 @@
+import ru.yamal.talanta.Task
+
+model {
+    Task task
+}
+json {
+    id task.id
+
+    title task.title
+
+    shortDescription task.shortDescription
+
+    minVotes  task.minVotes
+
+    dateTimeStart task.dateTimeStart
+
+    dateTimeFinishVotes task.dateTimeFinishVotes
+
+    taskStatus task.taskStatus
+
+    contacts task.contacts
+
+    address task.address
+
+    taskCategory task.taskCategory.name
+
+    author task.author.fullName
+}

@@ -1,0 +1,26 @@
+### Авторизация
+POST {{host}}/rest/signOn?username=user1258888&password=user1&firstName=Ivan&lastName=Ivanovich&age=17&studyPlace=1
+Content-Type: 'application/json'
+
+{
+    "username": "user555",
+    "password": "user1',
+    "firstName": "Иван",
+    "lastName": "Васильевич",
+    "age": 17,
+    "studyPlace": 1
+}
+
+
+### Авторизация 2.0
+POST {{host}}/rest/signOn
+Content-Type: 'application/json'
+
+{
+    "username": "user555",
+    "password": "user1',
+    "firstName": "Иван",
+    "lastName": "Васильевич",
+    "age": 17,
+    "studyPlace": 1
+}
