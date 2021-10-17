@@ -1,5 +1,5 @@
 ### Авторизация
-POST {{host}}/rest/signOn?username=test&password=test&fullName=Ivan&city=Salekhard&birthDay=22.05.2010&email=test@test.ru
+POST {{host}}/rest/signOn?username=test&password=test&fullName=Ivan&city=Salekhard&birthDay=22.05.2010&email=test123789@test.ru
 Content-Type: 'application/json'
 
 {

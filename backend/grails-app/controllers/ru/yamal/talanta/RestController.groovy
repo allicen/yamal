@@ -21,20 +21,24 @@ class RestController {
 
         def out = [result: '', message: '']
 
-        def username
-        if (params.email) {
-            username = params.email.substring(0, params.email.indexOf('@'))
-        } else {
+        if (!params.email) {
+            out.result = 'error'
+            out.message = 'Email обязателен для заполнения'
+            render(out as JSON)
+            return
+        }
+
+        if (User.findByUsername(params.email)) {
             out.result = 'error'
             out.message = 'Пользователь с таким логином уже зарегистрирован'
             render(out as JSON)
             return
         }
 
-        def user = new User(username: username, password: params.password, fullName: params.fullName)
+        def user = new User(username: params.email, password: params.password, fullName: params.fullName)
         def userDetails = new UserDetails(city: params.city, birthday: params.birthday, email: params.email, user: user)
 
-        if (User.findByUsername(params.username)) {
+        if (User.findByUsername(params.email)) {
             out.result = 'error'
             out.message = 'Пользователь с таким логином уже зарегистрирован'
             render(out as JSON)
