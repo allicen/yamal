@@ -11,7 +11,6 @@ class RestController {
     RoleService roleService
     UserDetailService userDetailService
     EventCategoryService eventCategoryService
-    QuestionService questionService
 
     def index() {
     }
