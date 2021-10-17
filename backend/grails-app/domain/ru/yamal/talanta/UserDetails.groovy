@@ -8,8 +8,7 @@ class UserDetails {
 
     String email
 
-    // Привязка к пользователю
-    static belongsTo = [user: User]
+    User user
 
     static constraints = {
     }
