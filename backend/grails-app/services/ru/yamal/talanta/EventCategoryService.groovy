@@ -10,8 +10,6 @@ interface EventCategoryService {
 
     List<EventCategory> list(Map args)
 
-    EventCategory findName(String name)
-
     Long count()
 
     void delete(Serializable id)
