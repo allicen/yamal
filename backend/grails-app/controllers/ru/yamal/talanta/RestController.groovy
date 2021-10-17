@@ -10,6 +10,7 @@ class RestController {
     UserService userService
     RoleService roleService
     UserDetailService userDetailService
+    EventCategoryService eventCategoryService
 
     def index() {
     }
@@ -60,5 +61,14 @@ class RestController {
         }
 
         render(out as JSON)
+    }
+
+
+    /**
+     * Получение категорий
+     * */
+    @Secured(['ROLE_ANONYMOUS'])
+    def getEventCategory() {
+        return (eventCategoryService.list(params) as JSON)
     }
 }
