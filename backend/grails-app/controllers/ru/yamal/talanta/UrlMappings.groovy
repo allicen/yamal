@@ -13,6 +13,8 @@ class UrlMappings {
         "/rest/getName"(controller: 'rest', action: 'getName')
         "/rest/signOn"(controller: 'rest', action: 'signOn')
         "/rest/getEventCategory"(controller: 'rest', action: 'getEventCategory')
+        "/rest/getQuestions"(controller: 'rest', action: 'getQuestions')
+        "/rest/getStat"(controller: 'rest', action: 'getStat')
 
         "/"(controller: 'application', action:'index')
         "500"(view: '/error')

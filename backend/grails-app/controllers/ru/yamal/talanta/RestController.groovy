@@ -11,6 +11,8 @@ class RestController {
     RoleService roleService
     UserDetailService userDetailService
     EventCategoryService eventCategoryService
+    QuestionService questionService
+    QuestionFormService questionFormService
 
     def index() {
     }
@@ -69,6 +71,56 @@ class RestController {
      * */
     @Secured(['ROLE_ANONYMOUS'])
     def getEventCategory() {
-        return (eventCategoryService.list(params) as JSON)
+        render (eventCategoryService.list(params).collect {[id: it.id, name: it.name]} as JSON)
+    }
+
+
+    /***
+     * Получение вопросов для вывода пользователю
+     * */
+    @Secured(['ROLE_ANONYMOUS'])
+    def getQuestions() {
+
+        def result = [
+                [ eventCategory: 'Программирование', questions: [
+                        [name: 'Вы интересуетесь этой темой или серьезно занимаетесь?', type: 'checkbox', answers: [
+                                'Серьезно занимаюсь',
+                                'Больше развлекаюсь',
+                                'Нечто среднее'
+                        ]],
+                        [name: 'Скидки и бонусы какого рода Вам были бы интересны', type: 'checkbox', answers: [
+                                'Обучающие курсы',
+                                'Скидки на оборудование'
+                        ]],
+                        [name: 'Что Вы думаете о развитии программирования в ЯНАО? Что можно сделать лучше? Как поддержать программистов?', type: 'textarea', answers: [
+                                'Развит слабее, чем в крупных городах. Чаще организовывать соревнования, собирать команды и отправлять на большие соревнования. Нужны кружки в школе'
+                        ]]
+                ]],
+                  [ eventCategory: 'Киберспорт', questions: [
+                          [name: 'Вы интересуетесь этой темой или серьезно занимаетесь?', type: 'textarea', answers: [
+                                  'Серьезно занимаюсь',
+                                  'Больше развлекаюсь',
+                                  'Нечто среднее'
+
+                          ]],
+                          [name: 'Скидки и бонусы какого рода Вам были бы интересны', type: 'checkbox', answers: [
+                                  'Обучающие курсы',
+                                  'Скидки на оборудование'
+                          ]],
+                          [name: 'Что Вы думаете о развитии киберспорта в ЯНАО? Что можно сделать лучше? Как поддержать киберспортсменов?', type: 'checkbox', answers: [
+                                  'Мало развит, люди мало что о нем знают. Собрать кружки и чаще рассказывать об этом'
+                          ]]
+                  ]
+                ]
+        ]
+
+        render(result as JSON)
+    }
+
+    /**
+     * Получение статистики
+     * */
+    def getStat() {
+
     }
 }
