@@ -18,8 +18,8 @@ class BootStrap {
         }
 
         // Добавление учебных заведений
-        Study study = new Study(name: 'Ямальский университет')
-        studyService.save(study)
+//        Study study = new Study(name: 'Ямальский университет')
+//        studyService.save(study)
 
 //        // Добаление интересов
 //        Interest interest = new Interest(name: 'Игра в кальмара')
