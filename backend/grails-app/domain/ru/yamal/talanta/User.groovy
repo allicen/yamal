@@ -20,8 +20,6 @@ class User implements Serializable {
     // Полное имя
     String fullName
 
-    String email
-
     boolean enabled = true
     boolean accountExpired
     boolean accountLocked

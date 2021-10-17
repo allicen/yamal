@@ -21,18 +21,18 @@ class RestController {
 
         def out = [result: '', message: '']
 
-        Integer age
-        Study studyPlace
-
-        if (params.age) {
-            age = Integer.parseInt(params.age)
+        def username
+        if (params.email) {
+            username = params.email.substring(0, params.email.indexOf('@'))
+        } else {
+            out.result = 'error'
+            out.message = 'Пользователь с таким логином уже зарегистрирован'
+            render(out as JSON)
+            return
         }
 
-        if (params.studyPlace) {
-            studyPlace = Study.get(params.studyPlace)
-        }
-
-        def user = new User(username: params.username, password: params.password)
+        def user = new User(username: username, password: params.password, fullName: params.fullName)
+        def userDetails = new UserDetails(city: params.city, birthday: params.birthday, email: params.email, user: user)
 
         if (User.findByUsername(params.username)) {
             out.result = 'error'
@@ -40,9 +40,6 @@ class RestController {
             render(out as JSON)
             return
         }
-
-        def userDetails = new UserDetails(firstName: params.firstName, lastName: params.lastName,
-                age: params.age, studyPlace: params.studyPlace, user: user)
 
         try {
             userService.save(user)

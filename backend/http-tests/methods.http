@@ -1,14 +1,14 @@
 ### Авторизация
-POST {{host}}/rest/signOn?username=user1258888&password=user1&firstName=Ivan&lastName=Ivanovich&age=17&studyPlace=1
+POST {{host}}/rest/signOn?username=test&password=test&fullName=Ivan&city=Salekhard&birthDay=22.05.2010&email=test@test.ru
 Content-Type: 'application/json'
 
 {
-    "username": "user555",
-    "password": "user1',
-    "firstName": "Иван",
-    "lastName": "Васильевич",
-    "age": 17,
-    "studyPlace": 1
+    "username": "test",
+    "password": "test',
+    "fullName": "Ivan",
+    "city": "Salekhard",
+    "birthDay": "22.05.2010",
+    "email": "test@test.ru"
 }
 
 

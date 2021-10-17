@@ -2,12 +2,11 @@ package ru.yamal.talanta
 
 class UserDetails {
 
-    City city
+    String city
 
-    Date birthday
+    String birthday
 
-    // Учебное заведение
-    Study studyPlace
+    String email
 
     // Привязка к пользователю
     static belongsTo = [user: User]
