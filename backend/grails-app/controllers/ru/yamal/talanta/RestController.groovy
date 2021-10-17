@@ -36,7 +36,7 @@ class RestController {
         }
 
         def user = new User(username: params.email, password: params.password, fullName: params.fullName)
-        def userDetails = new UserDetails(city: params.city, birthday: params.birthday, email: params.email, user: user)
+        def userDetails = new UserDetails(city: params.city, birthday: params.birthday, userEmail: params.email, user: user)
 
         if (User.findByUsername(params.email)) {
             out.result = 'error'

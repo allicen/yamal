@@ -6,7 +6,7 @@ class UserDetails {
 
     String birthday
 
-    String email
+    String userEmail
 
     User user
 
